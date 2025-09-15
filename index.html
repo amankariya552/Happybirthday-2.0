@@ -27,9 +27,9 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Align top and bottom */
+    justify-content: center;
     align-items: center;
-    padding: 20px 10px;
+    padding: 20px;
     box-sizing: border-box;
     opacity: 0;
     transition: opacity 1s ease-in-out;
@@ -59,7 +59,6 @@
     border-radius: 12px;
     cursor: pointer;
     transition: 0.3s;
-    margin-bottom: 20px;
   }
 
   button:hover {
@@ -71,22 +70,13 @@
     max-width: 80%;
     height: auto;
     border-radius: 10px;
-  }
-
-  /* Special style for image at the bottom of the first page */
-  .bottom-image {
-    width: 40%;
-    max-width: 200px;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    animation: float 3s ease-in-out infinite;
     margin-bottom: 20px;
   }
 
-  @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
+  /* Specific image class for first page */
+  img.first-page {
+    width: 80%;
+    max-width: 300px;
   }
 
   .sections {
@@ -148,9 +138,26 @@
     .section {
       width: 90%;
     }
-    .bottom-image {
-      width: 60%;
+    img.first-page {
+      max-width: 200px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 20px;
+    }
+    button {
+      font-size: 18px;
+    }
+    img.first-page {
       max-width: 150px;
+    }
+    .section h2 {
+      font-size: 20px;
+    }
+    .section .content {
+      font-size: 16px;
     }
   }
 </style>
@@ -159,11 +166,9 @@
 
 <!-- First Page -->
 <div id="firstPage" class="page active">
-  <div style="text-align: center; margin-top: 20px;">
-    <h1>Happy Birthday Twinkle 🎉</h1>
-    <button onclick="showPage(2)">Click Here</button>
-  </div>
-  <img src="pic/pic.5.jpg" alt="first page image" class="bottom-image">
+  <img src="pic/pic.5.jpg" class="first-page" alt="FIRST Page Image">
+  <h1>Happy Birthday Twinkle 🎉</h1>
+  <button onclick="showPage(2)">Click Here</button>
 </div>
 
 <!-- Second Page -->
