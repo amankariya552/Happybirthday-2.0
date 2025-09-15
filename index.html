@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Happy Birthday Twinkle</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
+  body {
+    font-family: 'High Tower', serif;
+    background: linear-gradient(135deg, #ffd1dc, #ffe6f0);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Align top and bottom */
+    align-items: center;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    overflow-y: auto;
+    text-align: center;
+  }
+
+  .active {
+    opacity: 1;
+    z-index: 1;
+  }
+
+  h1 {
+    font-size: clamp(22px, 5vw, 40px);
+    color: #ff69b4;
+    text-shadow: 1px 1px 3px #ffb6c1;
+    margin-bottom: 15px;
+    line-height: 1.3em;
+  }
+
+  button {
+    padding: 8px 16px;
+    font-size: clamp(16px, 3.5vw, 24px);
+    color: white;
+    background-color: #ff69b4;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 20px;
+  }
+
+  button:hover {
+    background-color: #ff85c1;
+    transform: scale(1.05);
+  }
+
+  img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  /* Special style for image at the bottom of the first page */
+  .bottom-image {
+    width: 40%;
+    max-width: 200px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    animation: float 3s ease-in-out infinite;
+    margin-bottom: 20px;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+
+  .sections {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 15px;
+    width: 100%;
+  }
+
+  .section {
+    background-color: #ffb6c1;
+    border-radius: 15px;
+    padding: 12px;
+    width: clamp(250px, 45%, 400px);
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.3s;
+    position: relative;
+  }
+
+  .section:hover {
+    transform: scale(1.02);
+  }
+
+  .section h2 {
+    margin-bottom: 8px;
+    color: #fff;
+    font-size: clamp(18px, 3vw, 26px);
+  }
+
+  .section .content {
+    display: none;
+    margin-top: 10px;
+    text-align: left;
+    color: #fff;
+    font-size: clamp(14px, 2.5vw, 18px);
+    line-height: 1.5em;
+  }
+
+  .section.active .content {
+    display: block;
+  }
+
+  .section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+
+  @media (max-width: 768px) {
+    .sections {
+      flex-direction: column;
+      align-items: center;
+    }
+    .section {
+      width: 90%;
+    }
+    .bottom-image {
+      width: 60%;
+      max-width: 150px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- First Page -->
+<div id="firstPage" class="page active">
+  <div style="text-align: center; margin-top: 20px;">
+    <h1>Happy Birthday Twinkle 🎉</h1>
+    <button onclick="showPage(2)">Click Here</button>
+  </div>
+  <img src="pic/pic.5.jpg" alt="first page image" class="bottom-image">
+</div>
+
+<!-- Second Page -->
+<div id="secondPage" class="page">
+  <img src="pic/pic.11.jpg" alt="Second Page Image">
+  <h1>Heyy Cutieee!</h1>
+  <button onclick="showPage(3)">Click Here</button>
+</div>
+
+<!-- Third Page -->
+<div id="thirdPage" class="page">
+  <img src="pic/pic.12.jpg" alt="Third Page Image">
+  <h1>Almost there!</h1>
+  <button onclick="showPage(4)">Click Here</button>
+</div>
+
+<!-- Fourth Page -->
+<div id="fourthPage" class="page">
+  <img src="pic/pic.13.jpg" alt="Fourth Page Image">
+  <h1>Just one more step!</h1>
+  <button onclick="showPage(5)">Click Here</button>
+</div>
+
+<!-- Final Page -->
+<div id="fifthPage" class="page">
+  <h1>Special Wishes for You 🎈</h1>
+  <div class="sections">
+
+    <div class="section" onclick="toggleSection(this)">
+      <h2>Aman</h2>
+      <div class="content">
+        <img src="pic/pic.3.jpg" alt="Aman Image">
+        <p>Happy Birthday Twinkle! 🌟
+You’re not just my friend, you’re family. From all the crazy talks, random laughs, and those small silly fights – every moment with you is a memory I’ll always treasure. I’m so lucky to have you in my life.
+Wishing you loads of love, happiness, and all the fun you can handle this year! Keep shining like you always do, and let’s make more epic memories together.
+Love you loads!</p>
+      </div>
+    </div>
+
+    <div class="section" onclick="toggleSection(this)">
+      <h2>Tejaswita</h2>
+      <div class="content">
+        <img src="pic/pic.2.jpg" alt="Tejaswita Image">
+        <p>Happy Birthday, Twinks! 🎉💖 You’re not just my friend, you’re my safe space, my chaos partner, and the reason I can survive college without losing my mind. Thank you for being so loving, caring, and mischievous in the best way possible. 💕 Here’s to endless laughter, late-night talks, and a bond I’ll always treasure. 🥂✨🧿🫂
+- loads of love from teja 🫂</p>
+      </div>
+    </div>
+
+    <div class="section" onclick="toggleSection(this)">
+      <h2>Aqsa</h2>
+      <div class="content">
+        <img src="pic/pic.1.jpg" alt="Aqsa Image">
+        <p>Hey Twinkle aka Twinkiee 💖 
+It’s crazy to think that we’ve known each other for a year now. It actually took us a few months to start talking properly. But looking back, I’m really glad that happened, because now you’ve become one of my closest friends.
+Most probably a year now, we've shared talks, laughs and moments I could cherish for a lifetime... You know how I see you in my life as... as a twinkling little star ✨💫🌸  cuz you've made things shine and brighter for me in moments i thought I was losing hope. 
+It’s not about how long we've known each other, it's the bond we've created that I adore. 💗💞
+Here's to more memories, inside jokes and a friendship that stays stronger than the people who wish to escape the bermuda triangle 🥹😂
+Love you and wish you a very happy birthday 💓💞🫶🏻</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function showPage(pageNumber) {
+  const pages = ["firstPage", "secondPage", "thirdPage", "fourthPage", "fifthPage"];
+  pages.forEach(id => document.getElementById(id).classList.remove('active'));
+  document.getElementById(pages[pageNumber - 1]).classList.add('active');
+}
+
+function toggleSection(element) {
+  element.classList.toggle('active');
+}
+</script>
+
+</body>
+</html>
